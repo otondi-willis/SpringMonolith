@@ -13,7 +13,7 @@ public class QuestionService {
     QuestionDao questionDao;
 
     public List<Question> getAllQuestions() {
-        questionDao.getAllQuestion();
-        return null;
+        return questionDao.findAll();
+
     }
 }
