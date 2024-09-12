@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("question")
+@RequestMapping("/question")
 public class QuestionController {
-    @GetMapping("allQuestions")
+    @GetMapping("/allQuestions")
     public String getAllQuestions(){
-        return "Hi, these are your questions";
+        return questionService.getAllQuestions();
     }
 }
