@@ -1,7 +1,9 @@
 package com.willis.Quiz.App.Demo;
 
-public class Question {
+import jakarta.persistence.Id;
 
+public class Question {
+    @Id
     private Integer id;
     private String difficultyLevel;
     private String option1;
