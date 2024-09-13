@@ -8,8 +8,9 @@ import lombok.Data;
 @Table(name="question")
 public class Question {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    //other fields
     private String category;
     private String difficultylevel;
     private String option1;
