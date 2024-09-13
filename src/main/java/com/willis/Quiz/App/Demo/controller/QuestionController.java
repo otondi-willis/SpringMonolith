@@ -29,7 +29,7 @@ public class QuestionController {
     public String deleteQuestions(@PathVariable Integer id){
         return questionService.deleteQuestions(id);
     }
-    @PutMapping("/update/{id}")
+    @PutMapping("/update")
     public String updateQuestions(@RequestBody Question question){
         return questionService.updateQuestions(question);
     }
