@@ -32,7 +32,7 @@ public class QuestionController {
         return questionService.deleteQuestions(id);
     }
     @PutMapping("/update")
-    public String updateQuestions(@RequestBody Question question){
+    public ResponseEntity<String> updateQuestions(@RequestBody Question question){
         return questionService.updateQuestions(question);
     }
 }

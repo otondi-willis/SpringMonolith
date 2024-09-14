@@ -55,8 +55,13 @@ public class QuestionService {
         return new ResponseEntity<>("Not Deleted", HttpStatus.BAD_REQUEST);
     }
 
-    public String updateQuestions(Question question) {
+    public ResponseEntity<String> updateQuestions(Question question) {
         questionDao.save(question);
-        return "updated successfully";
+        try {
+            return new ResponseEntity<>("Updated Successfully", HttpStatus.OK);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>("Failed to update", HttpStatus.BAD_REQUEST);
     }
 }
