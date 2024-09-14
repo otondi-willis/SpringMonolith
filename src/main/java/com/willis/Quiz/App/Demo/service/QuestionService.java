@@ -25,19 +25,24 @@ public class QuestionService {
 
     }
 
-    public List<Question> getQuestionByCategory(String category) {
-        return questionDao.findByCategory(category);
+    public ResponseEntity<List<Question>> getQuestionByCategory(String category) {
+        try{
+            return new ResponseEntity<>(questionDao.findByCategory(category), HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_FOUND);
     }
 
-    public String addQuestions(Question question) {
+    public ResponseEntity<String> addQuestions(Question question) {
         questionDao.save(question);
 
-        return "success";
+        return new ResponseEntity<>("Success",HttpStatus.CREATED);
     }
 
-    public String deleteQuestions(Integer id) {
+    public ResponseEntity<String> deleteQuestions(Integer id) {
         questionDao.deleteById(id);
-        return "success";
+        return new ResponseEntity<>("success",HttpStatus.OK);
     }
 
     public String updateQuestions(Question question) {
