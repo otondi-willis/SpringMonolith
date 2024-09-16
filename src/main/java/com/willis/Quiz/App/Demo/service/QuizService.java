@@ -19,13 +19,24 @@ public class QuizService {
     QuestionDao questionDao;
 
     public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
-        List<Question> questions = questionDao.findRandomQuestionsByCategory(category,numQ);
+        List<Question> questions = questionDao.findRandomQuestionsByCategory(category);
+
+        // Ensure we only return up to numQ questions
+        if (questions.size() < numQ) {
+            return new ResponseEntity<>("Not enough questions in the selected category", HttpStatus.BAD_REQUEST);
+        }
+        // Limiting the questions to numQ
+        List<Question> limitedQuestions = questions.subList(0, numQ);
+
         Quiz quiz = new Quiz();
         quiz.setTitle(title);
-        quiz.setQuestions(questions);
+        quiz.setQuestions(limitedQuestions);
         quizDao.save(quiz);
 
-        return new ResponseEntity<>("success", HttpStatus.CREATED);
+
+
+
+        return new ResponseEntity<>("Quiz created successfully", HttpStatus.CREATED);
 
     }
 }
