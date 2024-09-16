@@ -3,13 +3,16 @@ package com.willis.Quiz.App.Demo.service;
 import com.willis.Quiz.App.Demo.dao.QuestionDao;
 import com.willis.Quiz.App.Demo.dao.QuizDao;
 import com.willis.Quiz.App.Demo.model.Question;
+import com.willis.Quiz.App.Demo.model.QuestionWrapper;
 import com.willis.Quiz.App.Demo.model.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QuizService {
@@ -37,6 +40,14 @@ public class QuizService {
 
 
         return new ResponseEntity<>("Quiz created successfully", HttpStatus.CREATED);
+
+    }
+
+    public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
+        Optional<Quiz> quiz = quizDao.findById(id);
+        List<Question> questionsFromDB = quiz.get().getQuestions();
+        List<QuestionWrapper> questionsForUser = new ArrayList<>();
+
 
     }
 }
