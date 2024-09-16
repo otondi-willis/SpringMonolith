@@ -1,9 +1,8 @@
 package com.willis.Quiz.App.Demo.controller;
 
-import com.willis.Quiz.App.Demo.Question;
+import com.willis.Quiz.App.Demo.model.Question;
 import com.willis.Quiz.App.Demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

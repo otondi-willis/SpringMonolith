@@ -1,4 +1,4 @@
-package com.willis.Quiz.App.Demo;
+package com.willis.Quiz.App.Demo.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

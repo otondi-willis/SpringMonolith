@@ -1,6 +1,6 @@
 package com.willis.Quiz.App.Demo.dao;
 
-import com.willis.Quiz.App.Demo.Question;
+import com.willis.Quiz.App.Demo.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
